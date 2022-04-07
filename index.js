@@ -17,6 +17,11 @@ const numScene = CurScene.GenNumScene()
 const pibvScene = CurScene.GenPIBVScene()
 const numvScene = CurScene.GenNumvScene()
 const arrstud = CurScene.GenArrStudScene()
+const PIBk = CurScene.GenPIBKScene()
+const emK = CurScene.GenEmailKScene()
+const MPk = CurScene.GenPhoneKScene()
+const zakl = CurScene.GenzakladScene()
+const parK = CurScene.GenParKScene()
 
 const lessname = CurScene.GenLessNameScene()
 
@@ -26,7 +31,12 @@ const stage = new Scenes.Stage([
     pibvScene,
     numvScene,
     arrstud,
-    lessname
+    lessname,
+    PIBk,
+    emK,
+    MPk,
+    zakl,
+    parK,
 ]);
 bot.use(stage.middleware())
 
@@ -75,6 +85,7 @@ bot.action('checkall',(ctx)=>{
             ])
     })
 })
+
 bot.action('kurator', (ctx, next) => {
     return ctx.reply('<b>Куратор меню</b>', {
         parse_mode: 'HTML',
@@ -137,6 +148,12 @@ bot.action('addstudenta', async (ctx, next) => {
 
     await ctx.reply('ф-ця добавляння студента)')
     await ctx.scene.enter('PIB')
+
+})
+bot.action('newKurator', async (ctx, next) => {
+
+    await ctx.reply('ф-ця добавляння студента)')
+    await ctx.scene.enter('PIBk')
 
 })
 //
